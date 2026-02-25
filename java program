@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class VoterAgeCounter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of people: ");
+        int n = sc.nextInt();
+        sc.nextLine(); // consume newline
+
+        String[] names = new String[n];
+        int[] ages = new int[n];
+
+        // Input names and ages
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter name of person " + (i + 1) + ": ");
+            names[i] = sc.nextLine();
+
+            System.out.print("Enter age of " + names[i] + ": ");
+            ages[i] = sc.nextInt();
+            sc.nextLine(); // consume newline
+        }
+
+        int eligibleCount = 0;
+        int notEligibleCount = 0;
+
+        System.out.println("\n--- Voter Eligibility List ---");
+        for (int i = 0; i < n; i++) {
+            if (ages[i] >= 18) {
+                System.out.println(names[i] + " (" + ages[i] + " years) is eligible to vote.");
+                eligibleCount++;
+            } else {
+                System.out.println(names[i] + " (" + ages[i] + " years) is NOT eligible to vote.");
+                notEligibleCount++;
+            }
+        }
+
+        System.out.println("\nTotal people: " + n);
+        System.out.println("Eligible voters (18+): " + eligibleCount);
+        System.out.println("Not eligible voters (<18): " + notEligibleCount);
+
+        sc.close();
+    }
+}
