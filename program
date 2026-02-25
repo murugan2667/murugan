@@ -1,0 +1,13 @@
+
+
+items = ["apple", "banana", "apple", "cherry", "banana", "apple"]
+
+while True:
+    element = input("Enter an item to count (or type 'exit' to quit): ")
+    
+    if element.lower() == "exit":
+        print("Program ended.")
+        break
+    
+    count = items.count(element)
+    print(f"'{element}' appears {count} times in the list.")
